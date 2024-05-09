@@ -1,0 +1,25 @@
+<div class="col">
+    <div class="col admin-menu-links">
+        <ul>
+            <li id="admin-sidebar-close">
+                <i class="ri-close-large-line" id="admin-sidebar-close"></i>
+            </li>
+            <li>
+                <i class="ri-eye-2-line"></i>
+                <a href="/">Visit Site</a>
+            </li>
+            <li {{#if is_dashboard}} class="active" {{/if}}>
+                <i class="ri-speed-up-line"></i>
+                <a href="/admin">Dashboard</a>
+            </li>
+            <li {{#if is_users}} class="active" {{/if}}>
+                <i class="ri-user-3-line"></i>
+                <a href="/admin/users">Users</a>
+            </li>
+            <li {{#if is_products}} class="active" {{/if}}>
+                <i class="ri-product-hunt-line"></i>
+                <a href="/admin/products">Products</a>
+            </li>
+        </ul>
+    </div>
+</div>
