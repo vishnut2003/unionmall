@@ -1,5 +1,10 @@
 /* admin sidebar */
 
+#admin-sidebar {
+    position: sticky;
+    top: 0;
+}
+
 .admin-menu-links {
     padding-top: 10px;
 }
@@ -45,7 +50,7 @@ li#admin-sidebar-close {
     display: none;
 }
 
-@media screen and (max-width:767px) {
+@media screen and (max-width:835px) {
     .admin-header-left i {
         display: block;
     }
@@ -107,4 +112,32 @@ li#admin-sidebar-close {
     font-size: 25px;
     margin: 0;
     font-weight: 600;
+}
+
+/* admin user table */
+
+.admin-user-table-col {
+    border: 1px solid;
+}
+
+.user-table-badge {
+    display: inline;
+    background-color: #cae2ff;
+    color: blue;
+    padding: 5px 10px;
+    font-weight: 500;
+    border-radius: 15px;
+}
+
+/* admin add user */
+
+.user-register-error {
+    display: flex;
+    gap: 9px;
+    align-items: center;
+    padding: 10px 25px;
+    background: #ff00000d;
+    color: red;
+    border-radius: 6px;
+    margin-bottom: 20px;
 }

@@ -5,11 +5,19 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const hbs = require('express-handlebars');
 
+const db = require('./config/database')
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const adminRouter = require('./routes/admin')
 
 var app = express();
+
+// connect database
+
+db.connect((err) => {
+  if(!err) console.log('Database Connected');
+})
 
 // view engine setup
 app.engine('hbs', hbs.engine({
