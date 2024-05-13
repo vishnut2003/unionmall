@@ -1,9 +1,10 @@
-/* admin sidebar */
-
-#admin-sidebar {
-    position: sticky;
-    top: 0;
+/* admin content part */
+.admin-content {
+    max-height: 100vh;
+    overflow: auto;
 }
+
+/* admin sidebar */
 
 .admin-menu-links {
     padding-top: 10px;

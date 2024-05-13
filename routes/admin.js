@@ -14,7 +14,6 @@ router.get('/users', (req, res) => {
 
     userHelpers.getAllUsers()
         .then((users) => {
-            console.log(users);
             res.render('backend/users', {
                 is_users: true,
                 page_title: 'Users',
@@ -43,6 +42,27 @@ router.post('/users/add', (req, res) => {
             register_err: err
         })
     })
+})
+
+router.get('/users/edit/:username', (req, res) => {
+    userHelpers.getOneUser(req.params.username)
+    .then((user) => {
+        res.render('backend/edit-user', {
+            user,
+            is_users: true,
+            page_title: `edit ${user.fname}`
+        })
+    })
+})
+
+router.post('/users/edit/:username', (req, res) => {
+    userHelpers.updateOne(req.params.username, req.body)
+        .then(() => {
+            res.redirect('/admin/users');
+        })
+        .catch((err) => {
+            res.send(err);
+        })
 })
 
 router.get('/users/delete/:username', (req, res) => {

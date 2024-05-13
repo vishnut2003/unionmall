@@ -39,5 +39,20 @@ module.exports = {
             await db.get().collection(collections.USER_COLLECTIONS).deleteOne({username})
             resolve()
         })
+    },
+    getOneUser: (username) => {
+        return new Promise(async (resolve, reject) => {
+            const user = await db.get().collection(collections.USER_COLLECTIONS).findOne({username});
+            if(user) resolve(user);
+            else reject();
+        })
+    },
+    updateOne: (username, userData) => {
+        return new Promise(async (resolve, reject) => {
+            await db.get().collection(collections.USER_COLLECTIONS).updateOne({username}, {$set: userData})
+                .then(() => {
+                    resolve();
+                })
+        })
     }
 }
