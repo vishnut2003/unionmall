@@ -50,11 +50,13 @@
                                     </td>
                                     <td>{{this.role}}</td>
                                     <td>
-                                        <button type="button" class="btn btn-primary btn-rounded btn-sm fw-bold"
-                                            data-mdb-ripple-color="dark">
-                                            Edit
-                                        </button>
-                                        <a href="/admin/users/delete/{{this.username}}">
+                                        <a href="/admin/users/edit/{{this.username}}">
+                                            <button type="button" class="btn btn-primary btn-rounded btn-sm fw-bold"
+                                                data-mdb-ripple-color="dark">
+                                                Edit
+                                            </button>
+                                        </a>
+                                        <a href="/admin/users/delete/{{this.username}}" onclick="return confirm('You are deleting {{this.username}}...')">
                                             <button type="button" class="btn btn-danger btn-rounded btn-sm fw-bold"
                                                 data-mdb-ripple-color="dark">
                                                 Delete
