@@ -1,13 +1,260 @@
 :root {
-  --primarycolor: #ff2c2c;
+  --logowidth: 115px;
+  --primarycolor: #ff8d00;
+  --forgradient: #ff6b01;
   --textcolor: #1d1d1d;
+  --fontfamily: 'rubik';
+  --letterspacing: 0;
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--fontfamily);
+  outline: none;
+}
+
+p {
+  margin: 0;
+}
+
+/* modification in bootstrap */
+
+.container {
+  max-width: 1400px;
+}
+
+/* main header style */
+.main-header {
+  box-shadow: 0 5px 17px -3px #0000001f;
+}
+
+.main-header-inner {
+  padding: 20px 10px;
+}
+
+.header {
+  gap: 70px;
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    gap: 10px;
+    justify-content: space-between;
+  }
+}
+
+.logo-col {
+  width: var(--logowidth);
+  display: flex;
+  align-items: center;
+}
+
+.logo-col a img {
+  width: 100%;
+}
+
+.header-search-col {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+}
+
+.header-search-col form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.header-search-col form input {
+  width: 100%;
+  border: none;
+  background: #f3f3f3;
+  padding: 10px 20px;
+}
+
+.header-search-col form button {
+  padding: 6px 15px;
+  border: none;
+  background: linear-gradient(90deg, var(--primarycolor) 0%, var(--forgradient) 93%);
+  color: white;
+}
+
+.header-action {
+  width: 331px;
+  display: flex;
+  gap: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .header-action {
+    width: 280px;
+    justify-content: end;
+  }
+}
+@media screen and (max-width: 425px) {
+  .header-action {
+    width: 174px;
+    gap: 10px;
+  }
+}
+
+.header-action-btn-user {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.header-action-btn-user i {
+  font-size: 27px;
+}
+
+.header-action-btn-user p {
+  display: flex;
+  flex-direction: column;
+  line-height: 16px;
+  font-size: 12px;
+}
+
+.header-action-btn-user p span {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.user-more-dropdown {
+  position: absolute;
+  top: 60px;
+  box-shadow: -4px 3px 16px 0px #0000000d;
+  z-index: 9;
+  background-color: white;
+}
+
+.user-more-dropdown p {
+  padding: 7px 10px;
+}
+
+.user-more-dropdown p a {
+  color: black;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.header-action-btn-wishlist {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.header-action-btn-wishlist a {
+  color: black;
+  text-decoration: none;
+  display: flex;
+  width: 71px;
+  gap: 6px;
+  align-items: center;
+}
+
+.header-action-btn-wishlist a i {
+  font-size: 27px;
+}
+
+.header-action-btn-wishlist a p {
+  line-height: 16px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.header-action-btn-cart {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.header-action-btn-cart i {
+  font-size: 26px;
+}
+
+.header-action-btn-cart div {
+  line-height: 16px;
+}
+
+span.cart-count {
+  background: red;
+  padding: 1px 12px;
+  font-size: 12px;
+  color: white;
+  border-radius: 15px;
+}
+
+.header-action-btn-cart div p {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.cart-sidebar-container {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: white;
+  padding: 20px;
+  height: 100%;
+  width: 335px;
+  z-index: 10;
+  box-shadow: -5px 1px 35px -11px #0000001a;
+}
+.cart-sidebar-container.active {
+  display: block;
+  animation: cart_sidebar .3s ease;
+}
+
+@keyframes cart_sidebar {
+  0% {
+    right: -200px;
+  }
+  100% {
+    right: 0;
+  }
+}
+
+.cart-sidebar-header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.cart-sidebar-header span {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 660px) {
+  .header-action-btn-wishlist a p,
+  .header-action-btn-user p,
+  .header-action-btn-cart div p {
+    display: none;
+  }
+  .header-action-btn-wishlist a,
+  .header-action-btn-user,
+  .header-action-btn-cart div {
+    justify-content: center;
+    width: max-content;
+  }
+  .header-search-col {
+    display: none;
+  }
+  span.cart-count {
+    padding: 4px 6px;
+    font-size: 11px;
+    background: red;
+    color: white;
+    border-radius: 50%;
+    position: relative;
+    top: -10px;
+    margin-left: -16px;
+}
 }

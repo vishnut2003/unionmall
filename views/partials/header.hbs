@@ -1,0 +1,62 @@
+<header class="container-fluid main-header">
+    <div class="container main-header-inner">
+        <div class="row header">
+            <div class="logo-col">
+                <a href="/">
+                    <img src="/images/website/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="col header-search-col">
+                <form action="/products">
+                    <input type="text" placeholder="Search for ...">
+                    <button type="submit">
+                        <i class="ri-search-line"></i>
+                    </button>
+                </form>
+            </div>
+            <div class="header-action">
+                <div class="header-action-btn-user" id="header-user-toggle">
+                    <i class="ri-user-3-line"></i>
+                    <p>
+                        Hello
+                        <span>Sign In</span>
+                    </p>
+                    <div class="user-more-dropdown" id="user-more-dropdown">
+                        <p>
+                            <a href="/login">Sign In</a>
+                        </p>
+                        <p>
+                            <a href="/register">Create Account</a>
+                        </p>
+                        <p>
+                            <a href="/lost-password">Forget Password?</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="header-action-btn-wishlist">
+                    <a href="/wishlist">
+                        <i class="ri-heart-3-line"></i>
+                        <p>Wish List</p>
+                    </a>
+                </div>
+                <div class="header-action-btn-cart" id="cart-sidebar-header-toggle">
+                    <i class="ri-shopping-cart-line"></i>
+                    <div class="cart-btn-text">
+                        <span class="cart-count">0</span>
+                        <p>Cart</p>
+                    </div>
+                </div>
+                <div class="cart-sidebar-container" id="cart-sidebar-col">
+                    <div class="cart-sidebar-header d-flex justify-content-between">
+                        <h2>Cart is empty...</h2>
+                        <span id="close-cart-sidebar">
+                            <i class="ri-close-large-line"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<script src="/javascripts/header.js"></script>
