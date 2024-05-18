@@ -8,30 +8,49 @@
             </div>
             <div class="col header-search-col">
                 <form action="/products">
-                    <input type="text" placeholder="Search for ...">
+                    <input name="search" type="text" placeholder="Search for Construction chemicals, Tiles, etc...">
                     <button type="submit">
                         <i class="ri-search-line"></i>
                     </button>
                 </form>
             </div>
             <div class="header-action">
+                <div class="mobile-search-wrapper">
+                    <i class="ri-search-line"></i>
+                </div>
                 <div class="header-action-btn-user" id="header-user-toggle">
                     <i class="ri-user-3-line"></i>
                     <p>
                         Hello
+                        {{#if user}}
+                        <span>{{user.fname}}</span>
+                        {{else}}
                         <span>Sign In</span>
+                        {{/if}}
                     </p>
-                    <div class="user-more-dropdown" id="user-more-dropdown">
-                        <p>
-                            <a href="/login">Sign In</a>
-                        </p>
-                        <p>
-                            <a href="/register">Create Account</a>
-                        </p>
-                        <p>
-                            <a href="/lost-password">Forget Password?</a>
-                        </p>
-                    </div>
+                </div>
+                <div class="user-more-dropdown" id="user-more-dropdown">
+                    {{#if user}}
+                    <p>
+                        <a href="/my-account">My Account</a>
+                    </p>
+                    <p>
+                        <a href="/edit-account">Edit Account</a>
+                    </p>
+                    <p>
+                        <a href="/logout">Logout</a>
+                    </p>
+                    {{else}}
+                    <p>
+                        <a class="login-sidebar-toggle">User Login</a>
+                    </p>
+                    <p>
+                        <a href="/register">Create Account</a>
+                    </p>
+                    <p>
+                        <a href="/lost-password">Forget Password?</a>
+                    </p>
+                    {{/if}}
                 </div>
                 <div class="header-action-btn-wishlist">
                     <a href="/wishlist">
@@ -46,17 +65,47 @@
                         <p>Cart</p>
                     </div>
                 </div>
-                <div class="cart-sidebar-container" id="cart-sidebar-col">
-                    <div class="cart-sidebar-header d-flex justify-content-between">
-                        <h2>Cart is empty...</h2>
-                        <span id="close-cart-sidebar">
-                            <i class="ri-close-large-line"></i>
-                        </span>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
 </header>
 
+{{!-- Cart Sidebar --}}
+<div class="cart-sidebar-wrapper">
+    <div class="cart-sidebar-container" id="cart-sidebar-col">
+        <div class="cart-sidebar-header d-flex justify-content-between">
+            <h2>Cart</h2>
+            <span id="close-cart-sidebar">
+                <i class="ri-close-large-line"></i>
+            </span>
+        </div>
+    </div>
+</div>
+
+{{!-- Login Sidebar --}}
+<div class="login-sidebar-wrapper">
+    <div class="login-sidebar-header">
+        <h2>Login</h2>
+        <i class="ri-close-large-line" id="login-sidebar-close"></i>
+    </div>
+    <div class="login-form-wrapper">
+        {{#if loginErr}}
+        <div class="login-err-wrapper">
+            <i class="ri-error-warning-fill"></i>
+            <p>{{loginErr}}</p>
+        </div>
+        {{/if}}
+
+        {{>login_form}}
+    </div>
+</div>
+
 <script src="/javascripts/header.js"></script>
+
+{{#if loginErr}}
+<script>
+    $(document).ready(() => {
+        $('.login-sidebar-toggle').click();
+    })
+</script>
+{{/if}}

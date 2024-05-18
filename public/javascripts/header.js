@@ -15,6 +15,20 @@ $(document).ready(() => {
     })
 
     cart_close.click(() => {
-        cart_sidebar.toggleClass('active')
+        cart_sidebar.toggleClass('active');
     })
+
+    // login sidebar anim
+    const login_sidebar_toggle = $('.login-sidebar-toggle');
+    const login_sidebar = $('.login-sidebar-wrapper');
+    const login_sidebar_close = $('#login-sidebar-close');
+
+    login_sidebar_toggle.click(() => {
+        login_sidebar.addClass('active');
+    })
+
+    login_sidebar_close.click(() => {
+        login_sidebar.removeClass('active');
+    })
+
 })

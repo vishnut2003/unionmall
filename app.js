@@ -5,7 +5,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const hbs = require('express-handlebars');
 
-const db = require('./config/database')
+const db = require('./config/database');
+const session = require('express-session');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -14,10 +15,19 @@ const adminRouter = require('./routes/admin')
 var app = express();
 
 // connect database
-
 db.connect((err) => {
   if(!err) console.log('Database Connected');
 })
+
+// Express Session
+app.use(session({
+  secret: 'JEYDBFT#%JEI123HDGDJSK',
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    maxAge: 60000
+  }
+}))
 
 // view engine setup
 app.engine('hbs', hbs.engine({

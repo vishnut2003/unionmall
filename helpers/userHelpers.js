@@ -54,5 +54,22 @@ module.exports = {
                     resolve();
                 })
         })
+    },
+    doLogin: (user) => {
+        return new Promise(async (resolve, reject) => {
+            const checkPassword = async (existUser) => {
+                await bcrypt.compare(user.password, existUser.password, (err, result) => {
+                    if(err) console.log(err);
+                    else if(result) resolve(existUser);
+                    else reject('Password is incorrect');
+                })
+            }
+            const usernameExist = await db.get().collection(collections.USER_COLLECTIONS).findOne({username: user.username})
+            const emailExist = await db.get().collection(collections.USER_COLLECTIONS).findOne({email: user.username});
+
+            if(usernameExist) checkPassword(usernameExist);
+            else if(emailExist) checkPassword(emailExist);
+            else reject('Username or Email not Exist');
+        })
     }
 }
