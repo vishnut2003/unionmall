@@ -36,7 +36,7 @@
     font-weight: 500;
 }
 
-.admin-menu-links ul li.active a, 
+.admin-menu-links ul li.active a,
 .admin-menu-links ul li.active i {
     color: white;
 }
@@ -55,6 +55,7 @@ li#admin-sidebar-close {
     .admin-header-left i {
         display: block;
     }
+
     li#admin-sidebar-close {
         display: block;
         position: absolute;
@@ -68,9 +69,11 @@ li#admin-sidebar-close {
         left: 0;
         width: 200px;
     }
+
     .admin-sidebar-hidden {
         display: none;
     }
+
     .admin-sidebar-show {
         display: block;
         animation: sidebar-admin-effect .2s linear;
@@ -80,6 +83,7 @@ li#admin-sidebar-close {
         0% {
             left: -100px;
         }
+
         100% {
             left: 0;
         }
@@ -141,4 +145,65 @@ li#admin-sidebar-close {
     color: red;
     border-radius: 6px;
     margin-bottom: 20px;
+}
+
+/* Add Products */
+.category-select-col,
+.tag-select-col {
+    max-height: 150px;
+    overflow: auto;
+    border: 1px solid #00000012;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.category-select-col::-webkit-scrollbar,
+.tag-select-col::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+.category-select-col::-webkit-scrollbar-track,
+.tag-select-col::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+.category-select-col::-webkit-scrollbar-thumb,
+.tag-select-col::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+.category-select-col::-webkit-scrollbar-thumb:hover,
+.tag-select-col::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.category-select-col>p, .tag-select-col>p {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+/* product tag add col style */
+.tag-add-col {
+    align-items: center;
+    padding: 6px;
+    border: 1px solid #cecece;
+}
+
+.tag-add-col > button {
+    min-width: max-content;
+    width: 40%;
+}
+
+.tag-add-col input {
+    max-width: 60%;
+    padding: 5px 15px;
+    border: none;
+}
+
+.tag-select-col ul {
+    margin-top: 10px;
 }

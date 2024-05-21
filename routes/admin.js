@@ -78,4 +78,12 @@ router.get('/products', (req, res) => {
         page_title: 'Products'
     })
 })
+
+router.get('/products/add', (req, res) => {
+    res.render('backend/add-products', {
+        is_products: true,
+        page_title: 'Add Products'
+    })
+})
+
 module.exports = router;

@@ -1,0 +1,78 @@
+<link rel="stylesheet" href="/stylesheets/admin/admin.css">
+<title>Add User</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div id="admin-sidebar"
+                class="col-lg-2 col-md-3 vh-100 bg-light admin-mobile-sidebar admin-sidebar-hidden z-3">
+                {{>admin-sidebar}}
+            </div>
+            <div class="col admin-content">
+                {{>admin-header}}
+                <div class="row p-5">
+                    <div class="col-sm-12 col-md-12 col-lg-8">
+                        <form class="d-flex flex-column gap-4" id="add-product-form" method="post">
+                            <div class="form-group">
+                                <label for="title">Product title</label>
+                                <input name="title" type="text" class="form-control" id="product-title" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Product Description</label>
+                                <div id="text-area-desc"></div>
+                            </div>
+                            <div class="row gap-4">
+                                <div class="col-12 col-lg-5 category-select-col">
+                                    <p>Product Categories</p>
+                                    <div class="form-group" id="categories-select">
+                                        <div class="check-field">
+                                            <input name="catgory" value="Category-1" type="checkbox">
+                                            <label for="catgory">Catgory 1</label>
+                                        </div>
+                                        <div class="check-field">
+                                            <input name="catgory" value="Category-2" type="checkbox">
+                                            <label for="catgory">Catgory 2</label>
+                                        </div>
+                                        <div class="check-field">
+                                            <input name="catgory" value="Category-3" type="checkbox">
+                                            <label for="catgory">Catgory 3</label>
+                                        </div>
+                                        <div class="check-field">
+                                            <input name="catgory" value="Category-4" type="checkbox">
+                                            <label for="catgory">Catgory 4</label>
+                                        </div>
+                                        <div class="check-field">
+                                            <input name="catgory" value="Category-5" type="checkbox">
+                                            <label for="catgory">Catgory 5</label>
+                                        </div>
+                                        <div class="check-field">
+                                            <input name="catgory" value="Category-6" type="checkbox">
+                                            <label for="catgory">Catgory 6</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-6 tag-select-col">
+                                    <p>Product Tags</p>
+                                    <div class="form-group d-flex tag-add-col">
+                                        <input type="text" name="tag" id="add-tag-field">
+                                        <button type="button" id="tag-field-btn" class="btn btn-primary">Add Tag</button>
+                                    </div>
+                                    <ul id="tag-show-list"></ul>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary w-25">Add Product</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var editor = new FroalaEditor('#text-area-desc');
+    </script>
+
+    <script defer src="/javascripts/admin/admin.js"></script>
+    <script defer src="/javascripts/admin/add_products.js"></script>
